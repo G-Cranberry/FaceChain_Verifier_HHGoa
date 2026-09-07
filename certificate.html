@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FaceChain Cryptographic Certificate — Block #6</title>
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card: #111827;
+      --border: #1f2937;
+      --accent: #10b981;
+      --accent-glow: rgba(16, 185, 129, 0.25);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --code-bg: #030712;
+      --brand: #6366f1;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); padding: 2rem 1rem; line-height: 1.5; }
+    .container { max-width: 860px; margin: 0 auto; }
+    .cert-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); position: relative; overflow: hidden; }
+    .cert-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #10b981, #6366f1, #3b82f6); }
+    .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
+    .title h1 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.025em; color: var(--text); }
+    .title p { color: var(--muted); font-size: 0.875rem; margin-top: 0.25rem; }
+    .badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--accent-glow); color: var(--accent); border: 1px solid var(--accent); padding: 0.35rem 0.85rem; border-radius: 9999px; font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+    .grid { display: grid; grid-template-columns: 180px 1fr; gap: 2rem; margin-bottom: 2rem; }
+    @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+    .face-preview { display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--code-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; text-align: center; }
+    .face-img { width: 140px; height: 140px; object-fit: cover; border-radius: 8px; border: 2px solid var(--accent); }
+    .face-label { font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem; text-transform: uppercase; font-weight: 600; }
+    .details-table { width: 100%; border-collapse: collapse; }
+    .details-table tr { border-bottom: 1px solid var(--border); }
+    .details-table tr:last-child { border-bottom: none; }
+    .details-table td { padding: 0.75rem 0; font-size: 0.875rem; vertical-align: middle; }
+    .details-table td:first-child { color: var(--muted); width: 150px; font-weight: 500; }
+    .code-val { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; background: var(--code-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-size: 0.8rem; word-break: break-all; color: #a5b4fc; }
+    .blockchain-section { background: var(--code-bg); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem; }
+    .blockchain-section h3 { font-size: 1rem; font-weight: 600; margin-bottom: 1rem; color: var(--text); display: flex; align-items: center; gap: 0.5rem; }
+    .blockchain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    @media (max-width: 640px) { .blockchain-grid { grid-template-columns: 1fr; } }
+    .block-field { display: flex; flex-direction: column; gap: 0.25rem; }
+    .block-field label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; font-weight: 600; }
+    .footer { margin-top: 2rem; text-align: center; font-size: 0.8125rem; color: var(--muted); border-top: 1px solid var(--border); padding-top: 1.5rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="cert-card">
+      <div class="header">
+        <div class="title">
+          <h1>FaceChain Verification Proof</h1>
+          <p>Hacker House Goa 2026 — Cryptographic Identity & Web Provenance Certificate</p>
+        </div>
+        <div class="badge">
+          <span>●</span> Verified On-Chain
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="face-preview">
+          <img src='data:image/jpeg;base64,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' alt='Detected Face' class='face-img' />
+          <span class="face-label">Detected Face ROI</span>
+        </div>
+
+        <div>
+          <table class="details-table">
+            <tr>
+              <td>Input Image Hash</td>
+              <td><span class="code-val">9710c4af9f0591b5b9687cfaa1dcda222413ddfd218b7c8e473f547b817e8146</span></td>
+            </tr>
+            <tr>
+              <td>Face Descriptor Hash</td>
+              <td><span class="code-val">8e183a300d547facc82d936353e4c4f7f1fcd3fff3ae3c70a46f4b36e78f0a46</span></td>
+            </tr>
+            <tr>
+              <td>Matched Social Post</td>
+              <td><a href="https://www.instagram.com/reel/DZMfNz8u-pW/" target="_blank" style="color: #60a5fa; text-decoration: none; word-break: break-all;">https://www.instagram.com/reel/DZMfNz8u-pW/</a></td>
+            </tr>
+            <tr>
+              <td>Matched Title / Source</td>
+              <td><strong>Just a girl, her laptop, and a million possibilities ...</strong> (Instagram)</td>
+            </tr>
+            <tr>
+              <td>Record Fingerprint</td>
+              <td><span class="code-val">fdd261817f9c8f79c174e71422622d79c009bdc250812b5f2dc1f4b28ca5f71f</span></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="blockchain-section">
+        <h3>⛓️ Blockchain Anchor Details</h3>
+        <div class="blockchain-grid">
+          <div class="block-field">
+            <label>Block Index</label>
+            <span class="code-val">Block #6</span>
+          </div>
+          <div class="block-field">
+            <label>Block Timestamp (UTC)</label>
+            <span class="code-val">2026-09-07T18:18:15.625823+00:00</span>
+          </div>
+          <div class="block-field" style="grid-column: 1 / -1;">
+            <label>Previous Block Hash</label>
+            <span class="code-val">0443bea6fb6b1ad650e1122d56d35ac374f43a76c369cff74831560b2a99ba48</span>
+          </div>
+          <div class="block-field" style="grid-column: 1 / -1;">
+            <label>Current Block Hash</label>
+            <span class="code-val">0b50a8aee6fd891b32b54c2aabfba46807b4baab8d1a607f8f20cb7c6e35060e</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        Generated by <strong>FaceChain Verifier</strong> • SHA-256 Chained Ledger • Zero Hardcoded Results
+      </div>
+    </div>
+  </div>
+</body>
+</html>

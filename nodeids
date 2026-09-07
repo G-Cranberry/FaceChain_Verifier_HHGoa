@@ -1,0 +1,8 @@
+[
+  "tests/test_pipeline.py::test_blockchain_genesis_and_chaining",
+  "tests/test_pipeline.py::test_blockchain_tamper_detection",
+  "tests/test_pipeline.py::test_face_descriptor_determinism",
+  "tests/test_pipeline.py::test_face_detection_and_encoding",
+  "tests/test_pipeline.py::test_html_certificate_generation",
+  "tests/test_pipeline.py::test_search_match_ranking"
+]
